@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width">
+    <title>Phaser Game</title>
+    <script src="libs/phaser.js"></script>
+    <script src="js/Boot.js"></script>
+    <script src="js/Preloader.js"></script>
+    <script src="js/Menu.js"></script>
+    <script src="js/Start.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div id="gameContainer"></div>
+
+<script>
+    window.onload = function() {
+        var game = new Phaser.Game(800, 600, Phaser.AUTO, "gameContainer");
+        
+        // adding states
+        game.state.add('Boot', Game.Boot);
+        game.state.add('Preloader', Game.Preloader);
+        game.state.add('Menu', Game.Menu);
+        game.state.add('Start', Game.Start);
+        
+        // starting the game
+        game.state.start('Boot');
+    }
+    </script>
+</body>
+
+</html>
